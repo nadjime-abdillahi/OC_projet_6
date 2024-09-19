@@ -258,20 +258,7 @@ li:hover {
 	position: relative;
 }
 
-.fa-arrows-up-down-left-right {
-	position: absolute;
-	top: 5px;
-	right: 25px;
-	background-color: #000000;
-	color: #FFFFFF;
-	font-size: 10px;
-	padding: 4px;
-	border-radius: 2px;
-	cursor: pointer;
-	opacity: 0;
-}
-
-.divGallery:hover .fa-arrows-up-down-left-right{
+.divGallery:hover {
 	opacity: 1;
 }
 
@@ -309,6 +296,7 @@ hr {
 	height: 0px;
 	border: 1px solid #B3B3B3;
 }
+
 .btn-modal {
 	margin-top: 30px;
 	border: 1px solid #1D6154;
@@ -414,7 +402,7 @@ hr {
 	flex-direction: column;
 	align-items: center;
 	width: 430px;
-	height: 180px;
+	height: 200px;
 	background-color: #E8F1F7;
 	border-radius: 3px;
 }
@@ -435,7 +423,7 @@ hr {
 }
 
 input[type=file] {
-	display: none;
+	opacity: 0;
 }
 
 .button-image {
@@ -629,11 +617,15 @@ select, option {
 	text-decoration: none;
 }
 
-.btn-link:focus {
+.active2 {
 	background-color:#1D6154;
 	color: #FFFEF8;
 }
 
+.btn-link:focus {
+	background-color:#1D6154;
+	color: #FFFEF8;
+}
 
 .gallery {
 	width: 100%;

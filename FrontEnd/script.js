@@ -41,10 +41,15 @@ function btnAll() {
     //On ajoute divBtn au btnLink //
     btnLink.appendChild(divBtn);
 
+    btnLink.addEventListener('change', function() {
+        btnLink.classList.toggle('active2');
+      });
+
     // const zero = document.getElementById("0");
     // zero.style.color = "white";
     // zero.style.backgroundColor  = "green";
 }
+
 //on active la fonction//
 btnAll();
 
@@ -192,8 +197,8 @@ function generateModalGallery(works) {
         imageElement.src = work.imageUrl;
         imageElement.className += "galleryImg";
 
-        const iconCross = document.createElement('icon');
-        iconCross.className += "fa-solid fa-arrows-up-down-left-right";
+        // const iconCross = document.createElement('icon');
+        // iconCross.className += "fa-solid fa-arrows-up-down-left-right";
 
         const iconTrash = document.createElement("icon");
         iconTrash.className += "fa-solid fa-trash-can";
@@ -202,13 +207,13 @@ function generateModalGallery(works) {
   
         iconTrash.addEventListener("click", deleteWorks);
 
-        const titleElement = document.createElement("figcaption");
+        // const titleElement = document.createElement("figcaption");
         // titleElement.innerText = work.title;
 
         modalGallery.appendChild(workElement);
         workElement.appendChild(divElement);
         divElement.appendChild(imageElement);
-        divElement.appendChild(iconCross);
+        // divElement.appendChild(iconCross);
         divElement.appendChild(iconTrash);
         // workElement.appendChild(titleElement);
     }
@@ -303,8 +308,8 @@ sendFormImage.addEventListener("submit", async function sendNewWork(event) {
     imageElement.src = work.imageUrl;
     imageElement.className += "galleryImg";
 
-    const iconCross = document.createElement('icon');
-    iconCross.className += "fa-solid fa-arrows-up-down-left-right";
+    // const iconCross = document.createElement('icon');
+    // iconCross.className += "fa-solid fa-arrows-up-down-left-right";
 
     const iconTrash = document.createElement("icon");
     iconTrash.className += "fa-solid fa-trash-can";
@@ -318,7 +323,7 @@ sendFormImage.addEventListener("submit", async function sendNewWork(event) {
     modalGallery.appendChild(workElement);
     workElement.appendChild(divElement);           
     divElement.appendChild(imageElement);
-    divElement.appendChild(iconCross);
+    // divElement.appendChild(iconCross);
     divElement.appendChild(iconTrash);
     divElement.appendChild(titleElement); 
 
@@ -327,7 +332,7 @@ sendFormImage.addEventListener("submit", async function sendNewWork(event) {
     sendFormImage.reset();
     select.value = "";
     document.querySelector(".add-image-button").style.backgroundColor  = "#A7A7A7"; 
-    toggleModal();
+    // toggleModal();
     toggleModalImage();
 });
 
@@ -354,13 +359,14 @@ function validationFile() {
     const fileSizeAlert = document.querySelector(".errorMessage");
     const newImage = imageData.files[0]; 
     const allowedExtensions = /(\.jpg|\.png)$/i;
+    const BtnImage = document.getElementById("#btn-image");
     if(newImage.size > 4e+6){
         fileSizeAlert.innerText = "Le fichier est trop volumineux !";
         imageData.value = "";
     }else if (!allowedExtensions.exec(imageData.value))  {
         fileSizeAlert.innerText = "Le fichier n'est pas au bon format !";
         imageData.value = "";
-    }else {
+    } else {
         fileSizeAlert.innerText = "";
         return false;
     }
